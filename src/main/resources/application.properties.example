@@ -1,4 +1,4 @@
-spring.datasource.url=jdbc:postgresql://localhost:5432/redditclone
+spring.datasource.url=jdbc:postgresql://localhost:<your-db-port>/redditclone
 spring.datasource.username=postgres
 spring.datasource.password=root
 
