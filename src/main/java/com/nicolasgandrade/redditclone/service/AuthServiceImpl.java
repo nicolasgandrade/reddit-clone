@@ -1,5 +1,7 @@
 package com.nicolasgandrade.redditclone.service;
 
+import com.nicolasgandrade.redditclone.dto.AuthenticationResponse;
+import com.nicolasgandrade.redditclone.dto.LoginRequest;
 import com.nicolasgandrade.redditclone.dto.RegisterRequest;
 import com.nicolasgandrade.redditclone.exceptions.SpredditException;
 import com.nicolasgandrade.redditclone.model.NotificationEmail;
@@ -7,7 +9,12 @@ import com.nicolasgandrade.redditclone.model.User;
 import com.nicolasgandrade.redditclone.model.VerificationToken;
 import com.nicolasgandrade.redditclone.repository.UserRepository;
 import com.nicolasgandrade.redditclone.repository.VerificationTokenRepository;
+import com.nicolasgandrade.redditclone.security.JwtProvider;
 import lombok.AllArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +32,8 @@ public class AuthServiceImpl {
     private final UserRepository userRepository;
     private final VerificationTokenRepository verificationTokenRepository;
     private final MailService mailService;
+    private final AuthenticationManager authenticationManager;
+    private final JwtProvider jwtProvider;
 
     @Transactional
     public void signup(RegisterRequest registerRequest) {
@@ -63,10 +72,20 @@ public class AuthServiceImpl {
         fetchUserAndEnable(verificationToken.get());
     }
 
+    @Transactional
     private void fetchUserAndEnable(VerificationToken verificationToken) {
         @NotBlank(message = "Username is required") String username = verificationToken.getUser().getUsername();
         User user = userRepository.findByUsername(username).orElseThrow(() -> new SpredditException("User not found with name: " + username));
         user.setEnabled(true);
         userRepository.save(user);
+    }
+
+    public AuthenticationResponse login(LoginRequest loginRequest) {
+        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+                loginRequest.getUsername(), loginRequest.getPassword()
+        ));
+        SecurityContextHolder.getContext().setAuthentication(authenticate);
+        String token = jwtProvider.generateToken(authenticate);
+        return new AuthenticationResponse(token, loginRequest.getUsername());
     }
 }

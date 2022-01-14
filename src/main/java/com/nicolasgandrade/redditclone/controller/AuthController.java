@@ -1,9 +1,10 @@
 package com.nicolasgandrade.redditclone.controller;
 
+import com.nicolasgandrade.redditclone.dto.AuthenticationResponse;
+import com.nicolasgandrade.redditclone.dto.LoginRequest;
 import com.nicolasgandrade.redditclone.dto.RegisterRequest;
 import com.nicolasgandrade.redditclone.service.AuthServiceImpl;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,5 +26,10 @@ public class AuthController {
     public ResponseEntity<String> verifyAccount(@PathVariable String token) {
         authService.verifyAccount(token);
         return new ResponseEntity<>("Account activated successfully", HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
+        return authService.login(loginRequest);
     }
 }
