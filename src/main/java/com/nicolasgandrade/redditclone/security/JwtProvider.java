@@ -1,7 +1,6 @@
 package com.nicolasgandrade.redditclone.security;
 
 import com.nicolasgandrade.redditclone.exceptions.SpredditException;
-import com.nicolasgandrade.redditclone.model.User;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
