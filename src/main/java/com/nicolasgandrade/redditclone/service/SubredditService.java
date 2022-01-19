@@ -1,6 +1,7 @@
 package com.nicolasgandrade.redditclone.service;
 
 import com.nicolasgandrade.redditclone.dto.SubredditDto;
+import com.nicolasgandrade.redditclone.mapper.SubredditMapper;
 import com.nicolasgandrade.redditclone.model.Subreddit;
 import com.nicolasgandrade.redditclone.repository.SubredditRepository;
 import lombok.AllArgsConstructor;
@@ -17,10 +18,11 @@ import java.util.stream.Collectors;
 public class SubredditService {
 
     private final SubredditRepository subredditRepository;
+    private final SubredditMapper subredditMapper;
 
     @Transactional
     public SubredditDto save(SubredditDto subredditDto) {
-        Subreddit savedObj = subredditRepository.save(mapSubredditDto(subredditDto));
+        Subreddit savedObj = subredditRepository.save(subredditMapper.mapDtoToSubreddit(subredditDto));
         subredditDto.setId(savedObj.getId());
         return subredditDto;
     }
@@ -29,22 +31,9 @@ public class SubredditService {
     public List<SubredditDto> getAll() {
         return subredditRepository.findAll()
                 .stream()
-                .map(this::mapToDto)
+                .map(subredditMapper::mapSubredditToDto)
                 .collect(Collectors.toList());
     }
 
-    private SubredditDto mapToDto(Subreddit subreddit) {
-        return SubredditDto.builder()
-                .id(subreddit.getId())
-                .subredditName(subreddit.getName())
-                .numberOfPosts(subreddit.getPosts().size())
-                .build();
-    }
 
-    private Subreddit mapSubredditDto(SubredditDto subredditDto) {
-        return Subreddit.builder()
-                .name(subredditDto.getSubredditName())
-                .description(subredditDto.getDescription())
-                .build();
-    }
 }
