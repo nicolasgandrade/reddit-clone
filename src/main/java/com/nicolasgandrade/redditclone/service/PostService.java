@@ -7,9 +7,12 @@ import com.nicolasgandrade.redditclone.exceptions.SubredditNotFoundException;
 import com.nicolasgandrade.redditclone.mapper.PostMapper;
 import com.nicolasgandrade.redditclone.model.Post;
 import com.nicolasgandrade.redditclone.model.Subreddit;
+import com.nicolasgandrade.redditclone.model.User;
 import com.nicolasgandrade.redditclone.repository.PostRepository;
 import com.nicolasgandrade.redditclone.repository.SubredditRepository;
+import com.nicolasgandrade.redditclone.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +28,7 @@ public class PostService {
     private final SubredditRepository subredditRepository;
     private final PostMapper postMapper;
     private final AuthServiceImpl authService;
+    private final UserRepository userRepository;
 
     public void save(PostRequest postRequest) {
         Subreddit subreddit = subredditRepository.findByName(postRequest.getSubredditName())
@@ -43,6 +47,13 @@ public class PostService {
         Subreddit subreddit = subredditRepository.findById(id)
                 .orElseThrow(() -> new SubredditNotFoundException(id.toString()));
         List<Post> posts = postRepository.findAllBySubreddit(subreddit);
+        return posts.stream().map(postMapper::mapToDto).collect(Collectors.toList());
+    }
+
+    public List<PostResponse> getPostsByUsername(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException(username));
+        List<Post> posts = postRepository.findByUser(user);
         return posts.stream().map(postMapper::mapToDto).collect(Collectors.toList());
     }
 }

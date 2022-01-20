@@ -33,8 +33,8 @@ public class PostController {
         return postService.getPostsBySubreddit(id);
     }
 
-//    @GetMapping("/by-username/{username}")
-//    public List<PostResponse> getPostsByUsername(@PathVariable String username) {
-//        return postService.getPostsByUsername(username);
-//    }
+    @GetMapping("/by-username/{username}")
+    public List<PostResponse> getPostsByUsername(@PathVariable String username) {
+        return postService.getPostsByUsername(username);
+    }
 }
