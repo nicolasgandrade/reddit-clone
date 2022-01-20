@@ -28,11 +28,11 @@ public class PostController {
         return postService.getPost(id);
     }
 
-//    @GetMapping("/by-subreddit/{id}")
-//    public List<PostResponse> getPostsBySubreddit(@PathVariable Long id) {
-//        return postService.getPostsBySubreddit(id);
-//    }
-//
+    @GetMapping("/by-subreddit/{id}")
+    public List<PostResponse> getPostsBySubreddit(@PathVariable Long id) {
+        return postService.getPostsBySubreddit(id);
+    }
+
 //    @GetMapping("/by-username/{username}")
 //    public List<PostResponse> getPostsByUsername(@PathVariable String username) {
 //        return postService.getPostsByUsername(username);
