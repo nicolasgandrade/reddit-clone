@@ -1,6 +1,7 @@
 package com.nicolasgandrade.redditclone.service;
 
 import com.nicolasgandrade.redditclone.dto.SubredditDto;
+import com.nicolasgandrade.redditclone.exceptions.SpredditException;
 import com.nicolasgandrade.redditclone.mapper.SubredditMapper;
 import com.nicolasgandrade.redditclone.model.Subreddit;
 import com.nicolasgandrade.redditclone.repository.SubredditRepository;
@@ -35,5 +36,26 @@ public class SubredditService {
                 .collect(Collectors.toList());
     }
 
+    public SubredditDto getSubreddit(Long id) {
+        Subreddit subreddit = subredditRepository.findById(id).orElseThrow(() -> new SpredditException("Id not found"));
+        return subredditMapper.mapSubredditToDto(subreddit);
+    }
 
+
+
+//    private SubredditDto mapToDto(Subreddit subreddit) {
+//        return SubredditDto.builder()
+//                .id(subreddit.getId())
+//                .name(subreddit.getName())
+//                .numberOfPosts(subreddit.getPosts().size())
+//                .build();
+//    }
+//
+//    private Subreddit mapSubredditDto(SubredditDto subredditDto) {
+//        return Subreddit.builder()
+//                .name(subredditDto.getName())
+//                .description(subredditDto.getDescription())
+//                .build();
+
+//    }
 }

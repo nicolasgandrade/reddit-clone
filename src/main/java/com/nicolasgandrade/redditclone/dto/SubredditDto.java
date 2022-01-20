@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SubredditDto {
     private Long id;
-    private String subredditName;
+    private String name;
     private String description;
     private Integer numberOfPosts;
 }
