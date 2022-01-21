@@ -16,3 +16,6 @@ spring.mail.protocol=smtp
 
 ##### JWT #####
 jwt.expiration.time=900000
+
+#### Swagger incompatibility fix #####
+spring.mvc.pathmatch.matching-strategy=ANT_PATH_MATCHER
