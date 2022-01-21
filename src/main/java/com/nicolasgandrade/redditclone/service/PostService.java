@@ -27,7 +27,7 @@ public class PostService {
     private final PostRepository postRepository;
     private final SubredditRepository subredditRepository;
     private final PostMapper postMapper;
-    private final AuthServiceImpl authService;
+    private final AuthService authService;
     private final UserRepository userRepository;
 
     public void save(PostRequest postRequest) {

@@ -23,7 +23,7 @@ public class CommentService {
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
     private final UserRepository userRepository;
-    private final AuthServiceImpl authService;
+    private final AuthService authService;
     private final CommentMapper commentMapper;
 
     public void save(CommentDto commentDto) {

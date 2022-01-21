@@ -3,7 +3,7 @@ package com.nicolasgandrade.redditclone.controller;
 import com.nicolasgandrade.redditclone.dto.AuthenticationResponse;
 import com.nicolasgandrade.redditclone.dto.LoginRequest;
 import com.nicolasgandrade.redditclone.dto.RegisterRequest;
-import com.nicolasgandrade.redditclone.service.AuthServiceImpl;
+import com.nicolasgandrade.redditclone.service.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private final AuthServiceImpl authService;
+    private final AuthService authService;
 
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest) {
