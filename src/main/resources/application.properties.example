@@ -6,3 +6,10 @@ spring.jpa.hibernate.ddl-auto=update
 spring.datasource.initialize=true
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
+
+##### Mail Trap #####
+spring.mail.host=smtp.mailtrap.io
+spring.mail.port=<your-port>
+spring.mail.username=<your-username>
+spring.mail.password=<your-password>
+spring.mail.protocol=smtp
