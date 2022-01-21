@@ -13,3 +13,6 @@ spring.mail.port=<your-port>
 spring.mail.username=<your-username>
 spring.mail.password=<your-password>
 spring.mail.protocol=smtp
+
+##### JWT #####
+jwt.expiration.time=900000
