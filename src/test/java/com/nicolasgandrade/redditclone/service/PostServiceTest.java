@@ -49,9 +49,6 @@ public class PostServiceTest {
     @Test
     @DisplayName("Should find post by id")
     public void shouldFindPostById() {
-        PostService postService = new PostService(
-                postRepository, subredditRepository, postMapper, authService,userRepository
-        );
         Post post = new Post(123L, "Test Post", "https://www.google.com", "Test",
                 0, null, Instant.now(), null);
         PostResponse expectedPostResponse = new PostResponse(123L, "Test Post", "www.google.com", "Test",
