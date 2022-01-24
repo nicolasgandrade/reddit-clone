@@ -10,7 +10,7 @@
 
 ### Adjustments and Improvements
 
-The backend (this repo) is ready. However, I'm still building the frontend with Angular 13. These are the main features built so far:
+The backend (this repo) is almost complete. However, I'm still building the frontend with Angular 13. These are the main features built so far:
 - [x] Register user and login/logout
 - [x] Verify account by email-sent verification token
 - [x] Use JWT tokens to make requests
