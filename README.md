@@ -46,6 +46,7 @@ If you're running in your local machine, you can acces `localhost:<your-port-usu
 Reading the documentation, do the following things to test Spreddit:
 1. Access the AuthController endpoint to register or login. Here, I'm using a free account of MailTrap for email testing, so if you try to register a new account with your email, you won't receive the confirmation token. So, you can login using username: `demouser1` and password: `demouser1`.
 2. When you log in, you will receive a Bearer token. From now on, you'll need to authenticate with your token for each request you make. In Postman, you can click on "Authorization" tab, select "Bearer Token" and paste your token.
-3. Now you can make all the requests listed in the docs.
-4. Try to create a subreddit, retrieve them, create a post, vote, comment etc. 😸
+3. Pay Attention! Each token expires in 15 minutes after created. When you logged in, you received a "refreshToken". Store this data and make a POST to `/api/auth/refresh/token` with your username and the refresh token. Read the <a href="https://spreddit-backend.herokuapp.com/swagger-ui/#/auth-controller/refreshTokenUsingPOST" target="_blank">docs</a> for details.
+4. Now you can make all the requests listed in the docs.
+5. Try to create a subreddit, retrieve them, create a post, vote, comment etc. 😸
 
