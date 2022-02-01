@@ -6,7 +6,7 @@
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 ![Reddit](https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white)
 
-> Spreddit is a Reddit clone made in Spring Boot. It was made with Spring Boot, Spring Data (JPA), Spring Security (JWT Authentication) and PostgreSQL.
+> Spreddit is a Reddit clone made in Spring Boot. This API was made to my portfolio and was build with Spring Boot, Spring Data (JPA), Spring Security (JWT Authentication) and PostgreSQL.
 
 <h4 align="center"> 
 	Heroku deploy:<br>
