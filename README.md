@@ -22,7 +22,7 @@ The backend (this repo) is almost complete. However, I'm still building the fron
 
 Before starting, make sure you meet the following requirements:
 * Install `Java 11`
-* Read the documentation in `${depoy url (still not deployed)}/swagger-ui`
+* Read the documentation in `${depoy url (still not deployed)}/swagger-ui/`
 * Transform application.properties.example to `application.properties`.
 * Create an account in `MailTrap` and replace the fields in `application.properties` to you informations.
 * Create a database called `redditclone` in your PostgreSQL.
@@ -33,6 +33,6 @@ Now you can start the API.
 
 ## ☕ Using Spreddit
 
-You can access `${deploy url (still not deployed)}/swagger-ui` to see the documentation.
-If you're running in your local machine, you can acces `localhost:<your-port-usually-8080>/swagger-ui`.
+You can access `${deploy url (still not deployed)}/swagger-ui/` to see the documentation.
+If you're running in your local machine, you can acces `localhost:<your-port-usually-8080>/swagger-ui/`.
 
