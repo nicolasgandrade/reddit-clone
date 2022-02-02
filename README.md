@@ -50,3 +50,27 @@ Reading the documentation, do the following things to test Spreddit:
 4. Now you can make all the requests listed in the docs.
 5. Try to create a subreddit, retrieve them, create a post, vote, comment etc. 😸
 
+## 📸 Screenshots
+
+### Login
+![Screenshot from 2022-02-02 16-22-33](https://user-images.githubusercontent.com/82426254/152222465-cbcc1db2-a0c1-4885-ae38-60a27a6bd973.png)
+
+### Get all subreddits
+![Screenshot from 2022-02-02 16-27-54](https://user-images.githubusercontent.com/82426254/152223095-bc4051ee-e703-4884-8935-46fa1b116085.png)
+
+### Create new subreddit
+![Screenshot from 2022-02-02 16-31-50](https://user-images.githubusercontent.com/82426254/152223616-648e0907-3783-4e0d-84b0-be32b2f50e55.png)
+
+### Create new post inside a subreddit
+![Screenshot from 2022-02-02 16-37-02](https://user-images.githubusercontent.com/82426254/152224422-0331dfc1-681d-42b6-999e-74fb99e5ec6f.png)
+
+### Find posts inside a subreddit
+![Screenshot from 2022-02-02 16-38-05](https://user-images.githubusercontent.com/82426254/152224592-bcc7fb0d-9f5c-4e26-85ff-8395b43b95d2.png)
+
+etc...
+
+
+
+
+
+
